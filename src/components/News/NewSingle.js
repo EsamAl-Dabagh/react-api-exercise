@@ -1,12 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class NewSingle extends Component {
-
-  render() {
-    return (
-      <h4>News Item</h4>
-    )
-  }
-}
+const NewSingle = ( {item} ) => (
+  <li>
+    <p>{item.title}</p>
+  </li>
+)
 
 export default NewSingle;
