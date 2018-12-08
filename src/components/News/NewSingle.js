@@ -4,7 +4,7 @@ const NewSingle = ( {item} ) => (
   <div className="col s4">
     <div className="card">
       <div className="card-image">
-        <img src={item.imageToUrl} alt={item.title}></img>
+        <img src={item.urlToImage} alt={item.title}></img>
         <span className="card-title">{item.source.name}</span>
       </div>
       <div className="card-content">
