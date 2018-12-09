@@ -10,7 +10,7 @@ class News extends Component {
   }
 
   componentDidMount() {
-    const url = `https://newsapi.org/v2/top-headlines?sources=cbc-news&apiKey=${process.env.REACT_APP_API_NEWSAPI_KEY}`;
+    const url = `https://newsapi.org/v2/everything?sources=cbc-news&apiKey=${process.env.REACT_APP_API_NEWSAPI_KEY}`;
 
     fetch(url)
       .then((response) => {
