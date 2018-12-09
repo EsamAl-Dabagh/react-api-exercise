@@ -35,11 +35,13 @@ class SourceForm extends Component {
     return options
   }
 
-
+  handleChange() {
+    
+  }
 
   render() {
     return (
-      <Select options={this.formOptions()} />
+      <Select options={this.formOptions()} onChange={this.handleChange} />
     )
   }
 }
