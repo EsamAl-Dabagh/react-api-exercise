@@ -11,7 +11,7 @@ class App extends Component {
     this.state = {
       sources: [],
       chosenSource: {
-        id: ""
+        id: "cbc-news"
       }
     }
 
@@ -46,17 +46,11 @@ class App extends Component {
   handleChange(selectedOption) {
     this.setState({
       chosenSource: {
-        id: selectedOption
+        id: selectedOption.value
       }
     })
-  }
 
-  getSource() {
-    if(this.state.chosenSource.id !== "") {
-      return this.state.chosenSource.id
-    } else {
-      return "cbc-news"
-    }
+    this.render()
   }
 
   render() {
@@ -66,7 +60,7 @@ class App extends Component {
           <h1 className="App-title">News Feed</h1>
         </header>
         <Select options={this.formOptions()} onChange={this.handleChange} />
-        <News newsOutlet={this.getSource} />
+        <News newsOutlet={this.state.chosenSource.id} />
       </div>
     );
   }

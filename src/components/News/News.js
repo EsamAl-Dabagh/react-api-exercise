@@ -5,12 +5,26 @@ class News extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      news: []
+      news: [],
+      source: this.props.newsOutlet
     }
   }
 
   componentDidMount() {
-    const url = `https://newsapi.org/v2/everything?sources=${this.props.newsOutlet()}&apiKey=${process.env.REACT_APP_API_NEWSAPI_KEY}`;
+    this.getNews()
+  }
+
+  componentDidUpdate(prevProps) {
+    if(prevProps.newsOutlet !== this.props.newsOutlet) {
+      this.setState({
+        source: this.props.newsOutlet
+      })
+    }
+    this.getNews();
+  }
+
+  getNews() {
+    const url = `https://newsapi.org/v2/everything?sources=${this.state.source}&apiKey=${process.env.REACT_APP_API_NEWSAPI_KEY}`;
 
     fetch(url)
       .then((response) => {
