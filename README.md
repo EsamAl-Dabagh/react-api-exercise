@@ -1,9 +1,33 @@
-## Simple News App
+## React API Exercise
 
 ##### What is it? 
 A simple exercise in making calls to an API with React. 
 
-Use `fetch` to make a GET request to [NewsAPI](https://newsapi.org) to retrieve articles published by CBC News. 
+Use `fetch` to make a GET request to [NewsAPI](https://newsapi.org) to retrieve a list of news sources. The user can select one of the sources to view their news items. 
+
+##### Domain Model
+
+```
+╔═════════════╗
+║ <App />     ║
+║             ║
+║ GET sources ║
+╚═════════════╝
+      |
+      |         ╔════════════════════════════════╗
+      |         ║ <Select />                     ║
+      |________ ║                                ║
+      |         ║ Allow user to choose a source. ║
+      |         ╚════════════════════════════════╝
+      |
+      |         ╔══════════════════════╗
+      |         ║ <News />             ║      ╔══════════════════════════════╗
+      |________ ║                      ║ ____ ║ <NewSingle />                ║
+                ║ GET news from source ║      ║                              ║
+                ╚══════════════════════╝      ║ Display news item as a card  ║
+                                              ║ with link to full article.   ║
+                                              ╚══════════════════════════════╝
+```
 
 #### How to Run
 1. Clone repo and navigate to project folder: 
