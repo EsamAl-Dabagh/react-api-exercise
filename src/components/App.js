@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
-import News from './News/News'
 import Select from "react-select";
+import './App.css';
+import News from './News/News';
 
 class App extends Component {
 
@@ -12,7 +12,8 @@ class App extends Component {
       sources: [],
       chosenSource: {
         id: "cbc-news"
-      }
+      },
+      error: false
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -30,15 +31,22 @@ class App extends Component {
           sources: data.sources
         })
       })
-      .catch((error) => console.log(error))
+      .catch((error) => this.setState({
+        error: true
+      }));
   }
 
   formOptions() {
     let options = []
     
-    this.state.sources.forEach((source) => {
-      options.push({ value: source.id, label: source.name });
-    });
+    if(!this.state.error) {
+      this.state.sources.forEach((source) => {
+        options.push({ value: source.id, label: source.name });
+      });
+    } else {
+      options.push({ value: "error", label: "Error retrieving sources"})
+    }
+    
 
     return options
   }
