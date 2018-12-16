@@ -2,8 +2,8 @@ import React from 'react';
 
 const Error = () => (
   <div>
-    <h2>Error retrieving news:</h2>
-    <h4>Check your sources</h4>
+    <h4>Error retrieving news:</h4>
+    <h5>Check your sources</h5>
   </div>
 )
 
